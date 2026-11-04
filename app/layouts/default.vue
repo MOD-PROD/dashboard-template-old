@@ -67,7 +67,7 @@ const groups = computed(() => [{
       :ui="{ footer: 'lg:border-t lg:border-default' }"
     >
       <template #header="{ collapsed }">
-        <TeamsMenu :collapsed="collapsed" />
+        <NuxtLink to="/" class="flex items-center gap-2 px-2 py-3 font-bold tracking-wide"><UIcon name="i-lucide-orbit" class="size-6 text-primary" /><span v-if="!collapsed">MOD-PROD</span></NuxtLink>
       </template>
 
       <template #default="{ collapsed }">
@@ -90,9 +90,7 @@ const groups = computed(() => [{
         />
       </template>
 
-      <template #footer="{ collapsed }">
-        <UserMenu :collapsed="collapsed" />
-      </template>
+
     </UDashboardSidebar>
 
     <UDashboardSearch :groups="groups" />
