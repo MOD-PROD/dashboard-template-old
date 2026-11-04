@@ -22,7 +22,7 @@ const featured = computed(() => (data.value?.apps ?? []).slice(0, 4))
           <div v-else-if="status === 'pending'" class="text-muted">Chargement des applications…</div>
           <div v-else class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <UCard v-for="app in featured" :key="app.id" class="transition hover:-translate-y-1 hover:shadow-lg">
-              <div class="flex items-start gap-3"><div class="rounded-xl bg-primary/10 p-3"><UIcon name="i-lucide-boxes" class="size-6 text-primary" /></div><div class="min-w-0"><h3 class="font-semibold">{{ app.name }}</h3><p class="mt-1 text-sm text-muted">{{ app.description || app.tagline || 'Application MOD-PROD' }}</p><p v-if="app.version" class="mt-2 text-xs text-dimmed">Version {{ app.version }}</p></div></div>
+              <div class="flex items-start gap-3"><div class="rounded-xl bg-primary/10 p-3"><UIcon name="i-lucide-boxes" class="size-6 text-primary" /></div><div class="min-w-0"><NuxtLink :to="`/applications/${app.id}`" class="font-semibold hover:text-primary">{{ app.name }}</NuxtLink><p class="mt-1 text-sm text-muted">{{ app.description || app.tagline || 'Application MOD-PROD' }}</p><p v-if="app.version" class="mt-2 text-xs text-dimmed">Version {{ app.version }}</p></div></div>
               <template #footer><UButton :to="app.url" target="_blank" variant="ghost" color="neutral" trailing-icon="i-lucide-external-link" label="Ouvrir" block /></template>
             </UCard>
           </div>
