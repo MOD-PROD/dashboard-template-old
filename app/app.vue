@@ -13,19 +13,19 @@ useHead({
     { rel: 'icon', href: '/favicon.ico' }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: 'fr'
   }
 })
 
-const title = 'Nuxt Dashboard Template'
-const description = 'A professional dashboard template built with Nuxt UI, featuring multiple pages, data visualization, and comprehensive management capabilities for creating powerful admin interfaces.'
+const title = 'MOD-PROD Control Center'
+const description = 'Centre de pilotage des applications et services MOD-PROD.'
 
 useSeoMeta({
   title,
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/dashboard-light.png',
+  ogImage: 'https://modprod.app/favicon.png',
   twitterCard: 'summary_large_image'
 })
 </script>
