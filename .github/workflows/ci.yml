@@ -32,3 +32,8 @@ jobs:
 
       - name: Typecheck
         run: pnpm run typecheck
+
+      - name: Build Cloudflare Worker
+        env:
+          NITRO_PRESET: cloudflare_module
+        run: pnpm run build
