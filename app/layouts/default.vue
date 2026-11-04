@@ -7,42 +7,41 @@ const toast = useToast()
 const open = ref(false)
 
 const links = [[{
-  label: 'Home',
+  label: 'Accueil',
   icon: 'i-lucide-house',
   to: '/',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Inbox',
-  icon: 'i-lucide-inbox',
-  to: '/inbox',
-  badge: '4',
+  label: 'Applications',
+  icon: 'i-lucide-layout-grid',
+  to: '/applications',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Customers',
-  icon: 'i-lucide-users',
-  to: '/customers',
+  label: 'Console AppMod',
+  icon: 'i-lucide-sliders-horizontal',
+  to: 'https://admin.modprod.app',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Settings',
+  label: 'Paramètres',
   to: '/settings',
   icon: 'i-lucide-settings',
   defaultOpen: true,
   type: 'trigger',
   children: [{
-    label: 'General',
+    label: 'Général',
     to: '/settings',
     exact: true,
     onSelect: () => {
       open.value = false
     }
   }, {
-    label: 'Members',
+    label: 'Membres',
     to: '/settings/members',
     onSelect: () => {
       open.value = false
@@ -54,36 +53,36 @@ const links = [[{
       open.value = false
     }
   }, {
-    label: 'Security',
+    label: 'Sécurité',
     to: '/settings/security',
     onSelect: () => {
       open.value = false
     }
   }]
 }], [{
-  label: 'Feedback',
+  label: 'GitHub MOD-PROD',
   icon: 'i-lucide-message-circle',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
+  to: 'https://github.com/MOD-PROD/dashboard',
   target: '_blank'
 }, {
-  label: 'Help & Support',
+  label: 'Site MOD-PROD',
   icon: 'i-lucide-info',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
+  to: 'https://modprod.app',
   target: '_blank'
 }]] satisfies NavigationMenuItem[][]
 
 const groups = computed(() => [{
   id: 'links',
-  label: 'Go to',
+  label: 'Navigation',
   items: links.flat()
 }, {
   id: 'code',
-  label: 'Code',
+  label: 'Code source',
   items: [{
     id: 'source',
-    label: 'View page source',
+    label: 'Voir le code de la page',
     icon: 'i-simple-icons-github',
-    to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
+    to: `https://github.com/MOD-PROD/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
     target: '_blank'
   }]
 }])
@@ -95,18 +94,18 @@ onMounted(async () => {
   }
 
   toast.add({
-    title: 'We use first-party cookies to enhance your experience on our website.',
+    title: 'Ce tableau de bord utilise des cookies nécessaires à son fonctionnement.',
     duration: 0,
     close: false,
     actions: [{
-      label: 'Accept',
+      label: 'Accepter',
       color: 'neutral',
       variant: 'outline',
       onClick: () => {
         cookie.value = 'accepted'
       }
     }, {
-      label: 'Opt out',
+      label: 'Refuser',
       color: 'neutral',
       variant: 'ghost'
     }]
