@@ -41,7 +41,7 @@ const statusColor = (app: RegistryApp) => app.status === 'stable' ? 'success' : 
               <div class="rounded-xl bg-primary/10 p-3"><UIcon name="i-lucide-boxes" class="size-6 text-primary" /></div>
               <div class="min-w-0 flex-1">
                 <div class="flex flex-wrap items-center gap-2">
-                  <h2 class="font-semibold">{{ app.name }}</h2>
+                  <NuxtLink :to="`/applications/${app.id}`" class="font-semibold hover:text-primary">{{ app.name }}</NuxtLink>
                   <UBadge v-if="app.status" :color="statusColor(app)" variant="subtle" size="sm">{{ statusLabel[app.status] ?? app.status }}</UBadge>
                 </div>
                 <p v-if="app.tagline" class="mt-1 text-sm text-highlighted">{{ app.tagline }}</p>
@@ -49,7 +49,7 @@ const statusColor = (app: RegistryApp) => app.status === 'stable' ? 'success' : 
                 <p v-if="app.version" class="mt-3 text-xs text-dimmed">Version {{ app.version }}</p>
               </div>
             </div>
-            <template #footer><UButton :to="app.url" target="_blank" color="neutral" variant="outline" trailing-icon="i-lucide-external-link" label="Ouvrir l’application" block /></template>
+            <template #footer><div class="flex gap-2"><UButton :to="`/applications/${app.id}`" color="primary" variant="soft" icon="i-lucide-settings-2" label="Fiche" class="flex-1" /><UButton :to="app.url" target="_blank" color="neutral" variant="outline" trailing-icon="i-lucide-external-link" label="Ouvrir" class="flex-1" /></div></template>
           </UCard>
         </div>
         <UAlert color="info" variant="subtle" icon="i-lucide-shield-check" title="Migration en lecture seule" description="Les statuts affichés proviennent du registre publié par AppMod, pas d'une mesure de disponibilité en temps réel. Les modifications et publications restent dans AppMod." />
