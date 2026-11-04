@@ -19,7 +19,6 @@ export default defineEventHandler(async (event) => {
 
   // Public catalog only: no private AppMod settings, testers or GitHub credentials.
   const registry = await $fetch<{ apps: PublicApp[] }>('/api/registry', {
-    baseURL: getRequestURL(event).origin,
     headers: { accept: 'application/json' },
     timeout: 6000
   })
